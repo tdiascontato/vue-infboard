@@ -1,0 +1,10 @@
+<template>
+  <svg viewBox="-0.8 -0.8 17.60 17.60" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#1dd7b2" stroke-width="0.8">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier"> 
+      <path d="M4.35009 13.3929L8 16L11.6499 13.3929C13.7523 11.8912 15 9.46667 15 6.88306V3L8 0L1 3V6.88306C1 9.46667 2.24773 11.8912 4.35009 13.3929Z" fill="">
+      </path> 
+    </g>
+  </svg>
+</template>
