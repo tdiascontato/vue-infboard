@@ -14,7 +14,7 @@ import NavLinks from './NavLinks.vue';
 .container-navbar {
     display: flex;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
 }
 
 @media (min-width: 1024px) {
