@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import SearchInfluencer from '@/components/inputs/SearchInfluencer.vue';
 import Navbar from '@/components/navbar/Index.vue';
+import Leaderboard from '@/components/leaderboard/Index.vue';
 </script>
 
 <template>
   <main class="container-home-view">
     <Navbar />
-    <h1>Hello!</h1>
+    <SearchInfluencer width="80vw"/>
+    <Leaderboard />
   </main>
 </template>
 
@@ -15,8 +18,5 @@ import Navbar from '@/components/navbar/Index.vue';
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-}
-@media (min-width: 1024px) {
-
 }
 </style>

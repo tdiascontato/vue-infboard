@@ -18,7 +18,7 @@ import IconShieldLogo from '../icons/navbar/IconShieldLogo.vue';
     gap: 0.2rem;
 }
 .container-nav-logo > span {
-    background: linear-gradient(to right, #1dd7b2, #00bfff);
+    background: linear-gradient(to right, var(--color-green-1), var(--color-blue-1));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
