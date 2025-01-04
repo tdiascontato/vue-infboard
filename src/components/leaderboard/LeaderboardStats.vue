@@ -51,6 +51,7 @@ import StatCardUsers from '../icons/leaderboard/StatCardUsers.vue';
     background-color: #1e293b;
     padding: 1rem;
     border-radius: 0.5rem;
+    cursor: default;
 }
 .container-leaderboard-stats > .stat-card > .icon-stat-card {
     display: flex;

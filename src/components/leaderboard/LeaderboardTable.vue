@@ -26,18 +26,30 @@ const row = mockRowsLeaderboard.slice(0, 10);
 
 <style scoped>
 .container-leaderboard-table {
-    width: 100%;
+    margin: 0 auto;
+    width: 80vw;
     height: max-content;
     border-collapse: collapse;
     text-align: center;
+    background-color: var(--color-blue-2);
+    border-radius: 0.5rem;
 }
 .leaderboard-table th, .leaderboard-table td {
     padding: 0.5rem;
     text-align: center;
     border-bottom: 1px solid #1e293b;
 }
+
+.container-leaderboard-table > thead > tr > th {
+    color: var(--color-grey-1);
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
 .leaderboard-table th {
-    color: #94a3b8;
+    color: var(--color-white-1);
+    font-size: 1.2rem;
 }
 
 @media (min-width: 1024px) {

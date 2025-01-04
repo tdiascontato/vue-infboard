@@ -8,10 +8,10 @@ import LeaderboardTable from './LeaderboardTable.vue';
 
 <template>
     <section class="container-leaderboard">
-        <LeaderboardHeader width="70vw" />
-        <LeaderboardStats width="70vw" />
-        <LeaderboardFilters width="70vw" />
-        <LeaderboardTable width="70vw" />
+        <LeaderboardHeader />
+        <LeaderboardStats />
+        <LeaderboardFilters />
+        <LeaderboardTable />
     </section>
 </template>
 
