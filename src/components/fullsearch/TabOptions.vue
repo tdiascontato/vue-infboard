@@ -6,7 +6,8 @@ import ConfigIcon from '../icons/actions/ConfigIcon.vue';
     <div class="container-tab-options">
             <h2> 
             <ConfigIcon />
-                Research Configuration</h2>
+            Research Configuration
+            </h2>
             <div class="tabs">
                 <button>
                     Specific Influencer
@@ -25,19 +26,19 @@ import ConfigIcon from '../icons/actions/ConfigIcon.vue';
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin-bottom: 1rem;
     text-align: start;
     padding: 0.5rem;
 }   
 .container-tab-options > .tabs {
     display: flex;
-    gap: 5vw;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .container-tab-options > h2 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    color: var(--color-white-1);
+    color: var(--color-grey-1);
     margin-bottom: 0.2rem;
     width: 100%;
 }
@@ -47,7 +48,7 @@ import ConfigIcon from '../icons/actions/ConfigIcon.vue';
 }
 
 .container-tab-options > .tabs > button {
-    width: 40vw;
+    width: 50%;
     padding: 1rem 2rem;
     background: #1dd7b249;
     border: 0.05rem solid var(--color-green-1);

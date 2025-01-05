@@ -41,7 +41,7 @@ defineProps<{
 
 .return-page > h2 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: var(--color-grey-1);
 
 }

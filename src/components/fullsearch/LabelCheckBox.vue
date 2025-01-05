@@ -1,31 +1,25 @@
 <template>
     <div class="container-label-checkbox">
-        <div v-for="label in labels" :key="label">
-            <input type="checkbox" :id="label" :value="label" v-model="selectedLabels" class="custom-checkbox" />
-            <label :for="label">{{ label }}</label>
-        </div>
+        <input type="checkbox" :id="label" :value="label" class="custom-checkbox" />
+        <label :for="label">{{ label }}</label>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, defineProps } from 'vue';
 
-defineProps<{ labels: string[] }>();
+defineProps<{ label: string }>();
 
-const selectedLabels = ref<string[]>([]);
 </script>
 
 <style scoped>
 .container-label-checkbox {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.container-label-checkbox > div{
-    display: flex;
     align-items: center;
     gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #1dd7b249;
 }
 
 .custom-checkbox {

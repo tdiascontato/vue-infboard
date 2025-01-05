@@ -7,6 +7,8 @@ import TimeRange from "@/components/fullsearch/TimeRange.vue";
 import LabelsSearch from "@/components/fullsearch/LabelsSearch.vue";
 import SelectLabel from "@/components/fullsearch/SelectLabel.vue";
 import ScientificSearch from "@/components/fullsearch/ScientificSearch.vue";
+import TextBox from "@/components/fullsearch/TextBox.vue";
+import ButtonSearchBox from "@/components/fullsearch/ButtonSearchBox.vue";
   
 const scientificJournals = ref([
     "Nature",
@@ -38,6 +40,8 @@ const scientificJournals = ref([
           </aside>
         </div>
         <ScientificSearch :labels="scientificJournals" />
+        <TextBox placeholder="Add any specific instructions or focus areas..." />
+        <ButtonSearchBox />
       </div>
 
     </section>
@@ -51,10 +55,16 @@ const scientificJournals = ref([
 }
 
 .container-research-tasks > .form-research {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 1rem;
+  max-width: 80vw;
   background: var(--color-blue-2);
   padding: 0.3rem 1rem;
   border-radius: 0.3rem;
 }
+
 
 .container-research-tasks > .form-research > .bi-section-research {
   display: grid;
