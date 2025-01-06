@@ -14,8 +14,12 @@
                 :class="{ active: selectedOption === 'Monetization' }"
             >Monetization</li>
         </ul>
-        <div v-if="selectedOption">
+        <div class="claims-analysis-search-painel-content">
             <ClaimsAnalysisSlot v-if="selectedOption === 'Claims Analysis'" />
+        </div>
+        <div class="show-claims-contents">
+            <h3>Showing 10 claims</h3>
+            <ShowClaimsSlot />
         </div>
     </section>
 </template>
@@ -23,6 +27,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import ClaimsAnalysisSlot from './ClaimsAnalysisSlot.vue';
+import ShowClaimsSlot from './CardsClaimsSlot.vue';
 
 const selectedOption = ref<string | null>('Claims Analysis');
 </script>
