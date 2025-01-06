@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'fullsearch',
       component: () => import('../views/FullSearch.vue'),
     },
+    {
+      path: '/influencerid',
+      name: 'influencerid',
+      component: () => import('../views/InfluencerId.vue'),
+    }
   ],
 })
 
