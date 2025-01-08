@@ -1,7 +1,7 @@
 # Vue Infboard
 ### Data visualization project from Twitter for measuring Digital Influencers.
 
-![alt text](<Captura de tela 2025-01-07 231833.png>)
+![alt text](public/doc/screenone.png)
 
 ## Running the project with Docker
 
@@ -23,6 +23,6 @@
 
     Open the browser and go to `http://localhost:80`
 
-![alt text](<Captura de tela 2025-01-07 232007.png>)
+![alt text](public/doc/screenthree.png)
 
-![alt text](<Captura de tela 2025-01-07 231925.png>)
+![alt text](public/doc/screentwo.png)
