@@ -3,7 +3,7 @@ import NavSignOut from './NavSignOut.vue';
 
 const links = [
   { name: 'Leaderboard', path: '/' },
-  { name: 'Products', path: '/fullsearch' },
+  { name: 'FullSearch', path: '/fullsearch' },
   { name: 'Monetization', path: '#' },
   { name: 'About', path: '#' },
   { name: 'Contact', path: '#' },

@@ -13,21 +13,24 @@ interface Influencer {
     followers: string;
     tweets_number: string;
     score: string;
-
-
 }
 
 const influencer_rank = ref<Influencer[]>([]);
 
+
 onMounted(async () => {
-    const response = await getInfluencerRank();
-    if (response.length > 0) {
-        influencer_rank.value = response;
-    } else {
+    try {
+        const response = await getInfluencerRank();
+        if (response && Array.isArray(response) && response.length > 0) {
+            influencer_rank.value = response;
+        } else {
+            influencer_rank.value = mock_rank_influencers;
+        }
+    } catch (error) {
+        console.log('Using just in development. Change:', error);
         influencer_rank.value = mock_rank_influencers;
     }
 });
-
 </script>
 
 <template>
@@ -37,14 +40,14 @@ onMounted(async () => {
                 <th>Rank</th>
                 <th>Influencer</th>
                 <th>Category</th>
-                <th>Trust Score</th>
+                <th>Score</th>
                 <th>Trend</th>
                 <th>Followers</th>
-                <th>Verified Claims</th>
+                <th>Tweets</th>
             </tr>
         </thead>
         <tbody>
-            <LeaderboardRow :influencer_rank=" influencer_rank" />
+            <LeaderboardRow :influencer_rank="influencer_rank" />
         </tbody>
     </table>
 </template>
