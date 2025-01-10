@@ -23,7 +23,7 @@ const props = defineProps({
     influencerData: {
         type: Object,
         default: () => ({
-            username: 'Influencer Name',
+            username: 'Will Smith',
             category: 'Entertainment',
             comment: 'This is a description of the influencer. They have a significant impact on social media platforms. Their content is engaging and widely appreciated.',
             imageUrl: '/will.png'

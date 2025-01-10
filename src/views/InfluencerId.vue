@@ -7,6 +7,7 @@ import Cash from '@/components/icons/influencerid/Cash.vue';
 import Products from '@/components/icons/influencerid/Products.vue';
 import ArrowUp from '@/components/icons/leaderboard/ArrowUp.vue';
 import SearchPainel from '@/components/influencerid/SearchPainel.vue';
+import CardsClaimsSlot from '@/components/influencerid/CardsClaimsSlot.vue';
 import { postInfluencerSave, postRecentTweets } from '@/services/api';
 
 const route = useRoute();
@@ -21,7 +22,16 @@ const iconComponents: Record<IconKey, any> = {
 };
 
 const errorMessage = ref('');
-const tweets_data = ref([]);
+const tweets_data = ref({
+    id: 1,
+    influecer: 'Will',
+    content: 'Viewing sunlight within 30-60 minutes of waking enhances cortisol release.',
+    created_at: '11/01/2025',
+    url: 'http://localhost:5173',
+    comment: 'Multiple studies confirm morning light exposure affects cortisol rhythms. Timing window supported by research.',
+    category: 'Entertainment',
+    percentual: '92%',
+});
 const influencer_data = ref({
     id: 0,
     username: 'Will',
@@ -47,7 +57,6 @@ onMounted(async () => {
     tweets_data.value = await postRecentTweets(influencerId)
   } catch (error) {
     errorMessage.value = 'Check your credetionals';
-    console.log(String(error));
   }
 });
 </script>
@@ -66,7 +75,12 @@ onMounted(async () => {
                 <component :is="iconComponents[card.icon]" />
             </CardsStats>
         </div>
-        <SearchPainel :influencer_data="influencer_data" :tweets_data="tweets_data" />
+        <SearchPainel />
+        <div class="show-claims-contents">
+            <h3 v-if="influencer_data">Showing {{ influencer_data.tweets_number }} tweets</h3>
+            <h3 v-else>Showing 1 tweet</h3>
+            <CardsClaimsSlot :tweets_data="tweets_data" />
+        </div>
         <div v-if="errorMessage" class="error-message-data">{{ errorMessage }}</div>
     </section>
 </template>

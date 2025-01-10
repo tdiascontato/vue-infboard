@@ -1,12 +1,31 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { getInfluencerRank } from '@/services/api';
+import { mock_rank_influencers } from '@/services/mocks';
 import LeaderboardRow from './LeaderboardRow.vue';
 
-const row = ref([]);
+interface Influencer {
+    id: number;
+    username: string;
+    created_at: string;
+    category: string;
+    trend: string;
+    followers: string;
+    tweets_number: string;
+    score: string;
+
+
+}
+
+const influencer_rank = ref<Influencer[]>([]);
 
 onMounted(async () => {
-  row.value = await getInfluencerRank();
+    const response = await getInfluencerRank();
+    if (response.length > 0) {
+        influencer_rank.value = response;
+    } else {
+        influencer_rank.value = mock_rank_influencers;
+    }
 });
 
 </script>
@@ -25,7 +44,7 @@ onMounted(async () => {
             </tr>
         </thead>
         <tbody>
-            <LeaderboardRow :row=" row" />
+            <LeaderboardRow :influencer_rank=" influencer_rank" />
         </tbody>
     </table>
 </template>

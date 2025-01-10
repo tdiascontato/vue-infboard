@@ -17,21 +17,15 @@
         <div class="claims-analysis-search-painel-content">
             <ClaimsAnalysisSlot v-if="selectedOption === 'Claims Analysis'" />
         </div>
-        <div class="show-claims-contents">
-            <h3 v-if="influencerData">Showing {{ influencerData.tweets_number }} tweets</h3>
-            <h3 v-else>Showing 1 tweet</h3>
-            <ShowClaimsSlot />
-        </div>
+
     </section>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import ClaimsAnalysisSlot from './ClaimsAnalysisSlot.vue';
-import ShowClaimsSlot from './CardsClaimsSlot.vue';
 
 const selectedOption = ref<string | null>('Claims Analysis');
-const influencerData = ref<any>();
 </script>
 
 <style scoped>

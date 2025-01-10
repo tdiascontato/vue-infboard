@@ -7,14 +7,16 @@ import StatCardUsers from '../icons/leaderboard/StatCardUsers.vue';
 import { getNumbersStatsGeneral } from '@/services/api';
 
 const stats = ref({
-    num_influencers: 0,
-    num_tweets: 0,
-    avg_score: 0
+    num_influencers: 75,
+    num_tweets: 1831,
+    avg_score: 77
 });
 
 onMounted(async () => {
     const response = await getNumbersStatsGeneral();
-    stats.value = response;
+    if(response.num_influencers != 0) {
+        stats.value = response;
+    }
 });
 </script>
 

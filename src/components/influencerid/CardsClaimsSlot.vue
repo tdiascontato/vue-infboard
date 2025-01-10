@@ -6,18 +6,20 @@
                         <button class="verify-statuses-date"> verified </button>
                         <div class="dates-statuses-date">
                             <Calendar />
-                            <p>14/01/2024</p>
+                            <p>{{ tweets_data.created_at }} </p>
                         </div>
                     </div>
-                    <p class="content-claim">Viewing sunlight within 30-60 minutes of waking enhances cortisol release.</p>
+                    <p class="content-claim">{{ tweets_data.content }}</p>
                     <div class="link-to-content">
+                        <a :href="tweets_data.url" target="_blank">
                         <p>View Source</p>
-                        <Link />
+                            <Link />
+                        </a>
                     </div>
                 </div>
                 <div class="right-up-content-claims">
-                    <p class="left-up-percentual">92%</p>
-                    <p class="left-up-trust-score">Trust Score</p>
+                    <p class="left-up-percentual">{{ tweets_data.percentual}}</p>
+                    <p class="left-up-trust-score">Score</p>
                 </div>
         </div>
         <div class="down-section-claims">
@@ -25,10 +27,12 @@
                 <Brain />
                 <p class="down-ai-analysis-text">AI Analysis</p>
             </div>
-            <p class="down-ai-analysis-title">Multiple studies confirm morning light exposure affects cortisol rhythms. Timing window supported by research.</p>
+            <p class="down-ai-analysis-title">{{ tweets_data.comment }}</p>
             <div class="link-to-content">
+                <a :href="tweets_data.url" target="_blank">
                 <p>View Research</p>
-                <Link />
+                    <Link />
+                </a>
             </div>
         </div>
     </div>
@@ -39,6 +43,18 @@ import Brain from '../icons/influencerid/Brain.vue';
 import Link from '../icons/influencerid/Link.vue';
 import Calendar from '../icons/influencerid/Calendar.vue';
 
+defineProps<{
+    tweets_data: {
+        id: number,
+        influecer: string,
+        content: string,
+        created_at: string,
+        url: string,
+        comment: string,
+        category: string,
+        percentual: string,
+    }
+}>();
 </script>
 
 <style scoped>
@@ -83,8 +99,6 @@ import Calendar from '../icons/influencerid/Calendar.vue';
     border: none;
     border-radius: 0.5rem;
     height: 1rem;
-
-
 }
 
 .left-up-content-claims > .statuses-date > .dates-statuses-date {
@@ -104,6 +118,17 @@ import Calendar from '../icons/influencerid/Calendar.vue';
     align-items: center;
     gap: 0.1rem;
     color: var(--color-green-1);
+    text-decoration: none;
+    font-style: normal;
+}
+
+.up-section-claims > .left-up-content-claims > .link-to-content a, .down-section-claims > .link-to-content a {
+    text-decoration: none;
+    color: var(--color-green-1);
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    gap: 0.3rem;
 }
 
 .container-show-claims > .down-section-claims {
@@ -123,6 +148,4 @@ import Calendar from '../icons/influencerid/Calendar.vue';
     font-size: 1.3rem;
     font-weight: 500;
 }   
-
-
 </style>

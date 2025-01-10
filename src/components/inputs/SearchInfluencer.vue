@@ -11,7 +11,7 @@ const handleSearch = () => {  if (searchValue.value) router.push(`/influencerid/
 <template>
   <input
     class="container-search-influencer"
-    placeholder="Search for an influencer"
+    placeholder="Search for an influencer (Will Smith):"
     v-model="searchValue"
     @keyup.enter="handleSearch"
   />

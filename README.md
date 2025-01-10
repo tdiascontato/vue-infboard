@@ -21,7 +21,7 @@
 
 3. Access the application in the browser:
 
-    Open the browser and go to `http://localhost:80`
+    Open the browser and go to `http://localhost:5173
 
 ![alt text](public/doc/screenthree.png)
 
