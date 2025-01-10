@@ -10,7 +10,7 @@ defineProps<{
 <template>
     <div class="return-page">
         <BackArrow />
-        <a @click="$emit('go-dashboard')" class="back-link">
+        <a class="back-link">
             Back to {{ backTo }}
         </a>
         <h2>{{ title }}</h2>

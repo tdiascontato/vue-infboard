@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import Brain from '../icons/influencerid/brain.vue';
+import Brain from '../icons/influencerid/Brain.vue';
 import Link from '../icons/influencerid/Link.vue';
 import Calendar from '../icons/influencerid/Calendar.vue';
 

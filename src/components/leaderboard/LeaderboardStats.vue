@@ -1,8 +1,21 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import StatCardCheck from '../icons/leaderboard/StatCardCheck.vue';
 import StatCardStats from '../icons/leaderboard/StatCardStats.vue';
 import StatCardUsers from '../icons/leaderboard/StatCardUsers.vue';
 
+import { getNumbersStatsGeneral } from '@/services/api';
+
+const stats = ref({
+    num_influencers: 0,
+    num_tweets: 0,
+    avg_score: 0
+});
+
+onMounted(async () => {
+    const response = await getNumbersStatsGeneral();
+    stats.value = response;
+});
 </script>
 
 <template>
@@ -12,8 +25,8 @@ import StatCardUsers from '../icons/leaderboard/StatCardUsers.vue';
                 <StatCardUsers />
             </div>
             <div class="disc-stat-card">
-                <h2>1,234</h2>
-                <span>Active Influencers</span>
+                <h2>{{ stats.num_influencers }}</h2>
+                <span>Influencers</span>
             </div>
         </div>
         <div class="stat-card">
@@ -21,8 +34,8 @@ import StatCardUsers from '../icons/leaderboard/StatCardUsers.vue';
                 <StatCardCheck />
             </div>
             <div class="disc-stat-card">
-                <h2>25,431</h2>
-                <span>Claims Verified</span>
+                <h2>{{ stats.num_tweets }}</h2>
+                <span>Tweets</span>
             </div>
         </div>
         <div class="stat-card">
@@ -30,8 +43,8 @@ import StatCardUsers from '../icons/leaderboard/StatCardUsers.vue';
                 <StatCardStats />
             </div>
             <div class="disc-stat-card">
-                <h2>85.7%</h2>
-                <span>Average Trust Score</span>
+                <h2>{{ stats.avg_score }}%</h2>
+                <span>Score</span>
             </div>
         </div>
     </section>
@@ -64,5 +77,6 @@ import StatCardUsers from '../icons/leaderboard/StatCardUsers.vue';
     color: var(--color-white-1);
 }
 .container-leaderboard-stats > .stat-card > .disc-stat-card > span {
-    font-size: medium;}
+    font-size: medium;
+}
 </style>

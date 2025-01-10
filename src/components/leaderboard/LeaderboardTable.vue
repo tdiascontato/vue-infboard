@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { getInfluencerRank } from '@/services/api';
 import LeaderboardRow from './LeaderboardRow.vue';
-import { mockRowsLeaderboard } from '@/services/mocks';
 
-const row = mockRowsLeaderboard.slice(0, 10);
+const row = ref([]);
+
+onMounted(async () => {
+  row.value = await getInfluencerRank();
+});
+
 </script>
 
 <template>

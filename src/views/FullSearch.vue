@@ -23,7 +23,7 @@ const scientificJournals = ref([
 
 <template>
     <section class="container-research-tasks">
-      <ReturnPage backTo="Dashboard" title="Full Search" @go-dashboard="" />
+      <ReturnPage backTo="Dashboard" title="Full Search" @click="() => $router.push('/')" />
       
       <div class="form-research">
         <TabOptions />

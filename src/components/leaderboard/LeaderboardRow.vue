@@ -3,21 +3,22 @@ import ArrowDown from '../icons/leaderboard/ArrowDown.vue';
 import ArrowUp from '../icons/leaderboard/ArrowUp.vue';
 
 interface LeaderboardItem {
+    id: number;
     rank: number;
-    name: string;
+    username: string;
     category: string;
-    trustScore: number;
     trend: string;
     followers: string;
-    verifiedClaims: number;
-    imageInfluencer: string;
+    tweets_number: number;
+    score: string;
 }
 
 defineProps<{
     row: LeaderboardItem[];
 }>();
 
-function getTrustScoreColor(trustScore: number): string {
+function getTrustScoreColor(score: string): string {
+    const trustScore = parseFloat(score)
     if (trustScore >= 90) {
         return 'var(--color-green-2)';
     } else if (trustScore >= 70 && trustScore <= 89) {
@@ -34,17 +35,17 @@ function getTrustScoreColor(trustScore: number): string {
 <tr class="container-leaderboard-row" v-for="(item, index) in row" :key="index">
         <td>#{{ item.rank }}</td>
         <td>
-            <img :src="item.imageInfluencer" alt="Influencer Image" class="influencer-image" />
-            {{ item.name }}
+            <img src="./will.png" alt="Influencer Image" class="influencer-image" />
+            {{ item.username }}
         </td>
         <td>{{ item.category }}</td>
-        <td :style="{ color: getTrustScoreColor(item.trustScore) }">{{ item.trustScore }}%</td>
+        <td :style="{ color: getTrustScoreColor(item.score) }">{{ item.score }}%</td>
         <td>
             <ArrowUp v-if="item.trend === 'up'" />
             <ArrowDown v-else />
         </td>
         <td>{{ item.followers }}</td>
-        <td>{{ item.verifiedClaims }}</td>
+        <td>{{ item.tweets_number }}</td>
 </tr>
 </template>
 

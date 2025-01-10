@@ -14,7 +14,7 @@ const router = createRouter({
       component: () => import('../views/FullSearch.vue'),
     },
     {
-      path: '/influencerid',
+      path: '/influencerid/:id',
       name: 'influencerid',
       component: () => import('../views/InfluencerId.vue'),
     }

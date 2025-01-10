@@ -1,12 +1,12 @@
 <template>
     <div class="container-influencer-header">
         <div class="left-influencer-hearder">
-            <img src="/will.png" alt="Influencer Image" />
+            <img :src="imageUrl" alt="Influencer Image" />
         </div>
         <div class="right-influencer-hearder">
             <h2>{{ name }}</h2>
             <div class="buttons-categories-influencer">
-                <button v-for="category in categories" :key="category" class="buttom-categories-influencer">
+                <button class="buttom-categories-influencer">
                     {{ category }}
                 </button>
             </div>
@@ -16,11 +16,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { defineProps } from 'vue';
 
-const name = ref('Influencer Name');
-const categories = ref(['Category 1', 'Category 2', 'Category 3']);
-const description = ref('This is a description of the influencer. They have a significant impact on social media platforms. Their content is engaging and widely appreciated. This is a description of the influencer. They have a significant impact on social media platforms. Their content is engaging and widely appreciated. This is a description of the influencer.');
+const props = defineProps({
+    influencerData: {
+        type: Object,
+        default: () => ({
+            username: 'Influencer Name',
+            category: 'Entertainment',
+            comment: 'This is a description of the influencer. They have a significant impact on social media platforms. Their content is engaging and widely appreciated.',
+            imageUrl: '/will.png'
+        })
+    }
+});
+
+const name = ref('');
+const category = ref([]);
+const description = ref('');
+const imageUrl = ref('');
+
+onMounted(() => {
+    name.value = props.influencerData.username;
+    category.value = props.influencerData.category;
+    description.value = props.influencerData.comment;
+    imageUrl.value = props.influencerData.imageUrl;
+});
 </script>
 
 <style scoped>

@@ -1,8 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const searchValue = ref('');
+const router = useRouter();
+
+const handleSearch = () => {  if (searchValue.value) router.push(`/influencerid/${searchValue.value}`) };
 </script>
 
 <template>
-  <input class="container-search-influencer" placeholder="Search for an influencer" />
+  <input
+    class="container-search-influencer"
+    placeholder="Search for an influencer"
+    v-model="searchValue"
+    @keyup.enter="handleSearch"
+  />
 </template>
 
 <style scoped>

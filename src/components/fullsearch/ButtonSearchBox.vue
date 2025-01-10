@@ -7,7 +7,7 @@
 
 <style scoped>
 .container-button-search-box {
-    width: 30vw;
+    max-width: 30vw;
     align-self: flex-end;
     padding: 0.3rem 1rem;
     font-size: 1rem;
